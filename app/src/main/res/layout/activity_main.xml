@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F9FC"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculadora VLSM"
+                android:textSize="24sp"
+                android:textColor="#0f0d0f"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+            <!-- Grouping IP address and mask fields -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/ipInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Dirección IP"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:backgroundTint="#F1F5F9"/>
+
+                <EditText
+                    android:id="@+id/prefijoInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Prefijo de mascara"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:backgroundTint="#F1F5F9"/>
+            </LinearLayout>
+
+            <!-- Grouping subnets input next to button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/subredesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Nro de subredes"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:backgroundTint="#F1F5F9"/>
+
+                <Button
+                    android:id="@+id/calcularButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Calcular"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Contenedor para la primera tabla con altura limitada -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- ScrollView bidireccional para la tabla de subredes -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:scrollbars="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TableLayout
+                                    android:id="@+id/resultTable"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxHeight="200dp"
+                                    android:stretchColumns="1">
+                                    <TableRow>
+                                        <TextView
+                                            android:text="Subred"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:text="Número de Hosts"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                    </TableRow>
+                                </TableLayout>
+                            </LinearLayout>
+                        </ScrollView>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Grouping Show Subnets and New IP buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <Button
+                    android:id="@+id/mostrarButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#f8afed"
+                    android:text="Mostrar subredes"/>
+
+                <Button
+                    android:id="@+id/nuevaIpButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nueva IP"
+                  />
+            </LinearLayout>
+
+            <!-- Contenedor para la segunda tabla -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resultados VLSM"
+                        android:textStyle="bold"
+                        android:layout_margin="8dp"/>
+
+                    <!-- ScrollView bidireccional para la tabla de resultados -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:scrollbars="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TableLayout
+                                    android:id="@+id/tablaIps"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:stretchColumns="1">
+                                    <TableRow>
+                                        <TextView
+                                            android:text="Nombre de Subred"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:text="Número de Hosts"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:text="IP de Red"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:text="Última IP"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:text="Broadcast"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="8dp"
+                                            android:gravity="center"
+                                            android:background="#EEEEEE"
+                                            android:textStyle="bold" />
+                                    </TableRow>
+                                </TableLayout>
+                            </LinearLayout>
+                        </ScrollView>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
