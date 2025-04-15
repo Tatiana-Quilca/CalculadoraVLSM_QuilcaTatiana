@@ -38,5 +38,4 @@ Esta herramienta es útil tanto para **profesionales de redes** como para **estu
 2. Ábrelo con Android Studio.
 3. Ejecuta el proyecto en un emulador o dispositivo físico Android.
 
- ### 👩‍💻 **Autor**
-Tatiana Quilca
+
