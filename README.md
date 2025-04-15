@@ -1,10 +1,10 @@
-# 🧮 **Calculadora VLSM - Quilca Tatiana**
+#  **Calculadora VLSM - Quilca Tatiana**
 
 La **Calculadora VLSM** es una aplicación Android diseñada para calcular y visualizar subredes utilizando la técnica **VLSM**. VLSM permite dividir una red IP en subredes de diferentes tamaños, optimizando el uso del espacio de direcciones IP. Este enfoque es muy útil para **administradores de redes**, **estudiantes de redes** y **profesionales de TI** que necesitan realizar cálculos precisos para redes de tamaño variable.
 
 ---
 
-### 🚀 **Características**
+###  **Características**
 
 - **Ingreso del número de subredes**: El usuario puede ingresar el **número de subredes** que necesita, y la aplicación calculará cómo dividir la red original en subredes más pequeñas.
   
@@ -30,7 +30,7 @@ Esta herramienta es útil tanto para **profesionales de redes** como para **estu
 
 ---
 
-### 📦 **Instalación y ejecución**
+###  **Instalación y ejecución**
 
 1. **Clona el repositorio**:
    
